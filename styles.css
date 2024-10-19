@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #87ceeb, #1e90ff); /* Sky background */
+}
+
+#gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#plane {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('plane.png'); /* Use your plane image */
+    background-size: cover;
+    top: 50%;
+    left: 20%;
+    z-index: 2; /* Keep it on top */
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.obstacle {
+    position: absolute;
+    width: 80px;
+    background-image: url('tower.png'); /* Use your building image */
+    background-size:cover;
+    animation: moveBuilding 4s linear infinite;
+    z-index: 1; /* Keep behind the plane */
+}
+
+#gameContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('bg.jpg'); /* Use your custom background */
+    background-size: cover;
+    /* background-repeat: repeat-x; Repeat horizontally */
+    background-position: 0 0;
+    overflow: hidden;
+    animation: scrollBackground 10s linear infinite; /* Infinite scroll */
+}
+
+@keyframes scrollBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0; /* Moves background horizontally */
+    }
+}
+
+#comboText {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: yellow;
+    font-family: sans-serif;
+    display: none; /* Hidden initially */
+    animation: fadeCombo 1s forwards;
+}
+
+@keyframes fadeCombo {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes moveBuilding {
+    from {
+        right: -80px;
+    }
+    to {
+        right: 100vw;
+    }
+}
